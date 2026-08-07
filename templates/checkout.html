@@ -1,0 +1,247 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Checkout
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <!-- Heading -->
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h2 class="fw-bold">
+
+                <i class="bi bi-credit-card"></i>
+
+                Checkout
+
+            </h2>
+
+            <p class="text-muted">
+
+                Confirm your order before placing it.
+
+            </p>
+
+        </div>
+
+        <div>
+
+            <a href="/cart"
+               class="btn btn-secondary">
+
+                <i class="bi bi-arrow-left"></i>
+
+                Back to Cart
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <form action="/checkout" method="POST">
+
+        <div class="row">
+
+            <!-- Buyer Details -->
+
+            <div class="col-lg-7">
+
+                <div class="card shadow mb-4">
+
+                    <div class="card-header bg-success text-white">
+
+                        <h5 class="mb-0">
+
+                            Buyer Details
+
+                        </h5>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+
+                                Buyer Name
+
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                value="{{ buyer.name }}"
+                                readonly>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+
+                                Email
+
+                            </label>
+
+                            <input
+                                type="email"
+                                class="form-control"
+                                value="{{ buyer.email }}"
+                                readonly>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+
+                                Phone Number
+
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                value="{{ buyer.phone }}"
+                                readonly>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+
+                                Delivery Address
+
+                            </label>
+
+                            <textarea
+                                class="form-control"
+                                rows="3"
+                                readonly>{{ buyer.address }}</textarea>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Order Summary -->
+
+            <div class="col-lg-5">
+
+                <div class="card shadow">
+
+                    <div class="card-header bg-dark text-white">
+
+                        <h5 class="mb-0">
+
+                            Order Summary
+
+                        </h5>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <p>
+
+                            <strong>Total Items :</strong>
+
+                            {{ total_items }}
+
+                        </p>
+
+                        <hr>
+
+                        <h4>
+
+                            Grand Total
+
+                        </h4>
+
+                        <h2 class="text-success">
+
+                            ₹ {{ grand_total }}
+
+                        </h2>
+
+                        <hr>
+
+                        <label class="form-label">
+
+                            Payment Method
+
+                        </label>
+
+                        <select
+                            name="payment_method"
+                            class="form-select mb-4"
+                            required>
+
+                            <option value="">
+                                Select Payment Method
+                            </option>
+
+                            <option value="Cash on Delivery">
+                                Cash on Delivery
+                            </option>
+
+                            <option value="UPI">
+                                UPI
+                            </option>
+
+                            <option value="Credit Card">
+                                Credit Card
+                            </option>
+
+                            <option value="Debit Card">
+                                Debit Card
+                            </option>
+
+                        </select>
+
+                        <div class="d-grid gap-2">
+
+                            <button
+                                type="submit"
+                                class="btn btn-success btn-lg">
+
+                                <i class="bi bi-bag-check-fill"></i>
+
+                                Place Order
+
+                            </button>
+
+                            <a href="/cart"
+                               class="btn btn-outline-secondary">
+
+                                Cancel
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

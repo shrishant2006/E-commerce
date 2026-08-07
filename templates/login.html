@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-5 col-md-7">
+
+        <div class="card shadow">
+
+            <div class="card-header bg-dark text-white text-center">
+                <h3>User Login</h3>
+            </div>
+
+            <div class="card-body">
+
+                <form action="/login" method="POST">
+
+                    <!-- Role -->
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Login As
+                        </label>
+
+                        <select class="form-select"
+                                name="role"
+                                required>
+
+                            <option value="">
+                                Select Role
+                            </option>
+
+                            <option value="admin">
+                                Admin
+                            </option>
+
+                            <option value="seller">
+                                Seller
+                            </option>
+
+                            <option value="buyer">
+                                Buyer
+                            </option>
+
+                        </select>
+                    </div>
+
+                    <!-- Email -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="Enter Email"
+                            required>
+
+                    </div>
+
+                    <!-- Password -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            name="password"
+                            class="form-control"
+                            placeholder="Enter Password"
+                            minlength="6"
+                            required>
+
+                    </div>
+
+                    <!-- Buttons -->
+
+                    <div class="d-grid">
+
+                        <button
+                            class="btn btn-primary">
+
+                            Login
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div class="card-footer text-center">
+
+                <small>
+
+                    Don't have an account?
+
+                </small>
+
+                <br><br>
+
+                <a href="/register_seller"
+                   class="btn btn-warning btn-sm">
+
+                    Seller Registration
+
+                </a>
+
+                <a href="/register_buyer"
+                   class="btn btn-success btn-sm">
+
+                    Buyer Registration
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="alert alert-info mt-4">
+
+            <h5>Admin Login</h5>
+
+            <strong>Email :</strong>
+
+            admin@gmail.com
+
+            <br>
+
+            <strong>Password :</strong>
+
+            admin123
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

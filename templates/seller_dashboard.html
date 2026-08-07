@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Seller Dashboard
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <!-- Header -->
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h2 class="fw-bold">
+
+                Seller Dashboard
+
+            </h2>
+
+            <p class="text-muted">
+
+                Welcome,
+                <strong>{{ seller_name }}</strong>
+
+            </p>
+
+        </div>
+
+        <div>
+
+            <a href="/add_product"
+               class="btn btn-success">
+
+                Add Product
+
+            </a>
+
+            <a href="/logout"
+               class="btn btn-danger">
+
+                Logout
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Dashboard Cards -->
+
+    <div class="row">
+
+        <div class="col-md-4 mb-4">
+
+            <div class="card border-primary shadow">
+
+                <div class="card-body text-center">
+
+                    <h5>
+
+                        Total Products
+
+                    </h5>
+
+                    <h2 class="text-primary">
+
+                        {{ total_products }}
+
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4 mb-4">
+
+            <div class="card border-success shadow">
+
+                <div class="card-body text-center">
+
+                    <h5>
+
+                        Products Sold
+
+                    </h5>
+
+                    <h2 class="text-success">
+
+                        {{ total_orders }}
+
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4 mb-4">
+
+            <div class="card border-warning shadow">
+
+                <div class="card-body text-center">
+
+                    <h5>
+
+                        Buyers
+
+                    </h5>
+
+                    <h2 class="text-warning">
+
+                        {{ total_buyers }}
+
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Quick Actions -->
+
+    <div class="card shadow">
+
+        <div class="card-header bg-dark text-white">
+
+            <h5 class="mb-0">
+
+                Quick Actions
+
+            </h5>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-md-4 d-grid mb-3">
+
+                    <a href="/add_product"
+                       class="btn btn-success">
+
+                        Add Product
+
+                    </a>
+
+                </div>
+
+                <div class="col-md-4 d-grid mb-3">
+
+                    <a href="/products"
+                       class="btn btn-primary">
+
+                        View Products
+
+                    </a>
+
+                </div>
+
+                <div class="col-md-4 d-grid mb-3">
+
+                    <a href="/logout"
+                       class="btn btn-danger">
+
+                        Logout
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

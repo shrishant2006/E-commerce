@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Buyer Registration
+{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-7">
+
+        <div class="card shadow">
+
+            <div class="card-header bg-success text-white text-center">
+
+                <h3>
+
+                    Buyer Registration
+
+                </h3>
+
+            </div>
+
+            <div class="card-body">
+
+                <form action="/register_buyer" method="POST">
+
+                    <!-- Buyer Name -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Buyer Name
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="buyer_name"
+                            class="form-control"
+                            minlength="3"
+                            maxlength="50"
+                            placeholder="Enter Buyer Name"
+                            required>
+
+                    </div>
+
+                    <!-- Phone -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Phone Number
+
+                        </label>
+
+                        <input
+                            type="tel"
+                            name="phone"
+                            class="form-control"
+                            pattern="[0-9]{10}"
+                            placeholder="Enter 10 Digit Mobile Number"
+                            required>
+
+                    </div>
+
+                    <!-- Address -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Address
+
+                        </label>
+
+                        <textarea
+                            name="address"
+                            class="form-control"
+                            rows="3"
+                            placeholder="Enter Address"
+                            required></textarea>
+
+                    </div>
+
+                    <!-- Email -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Email
+
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="Enter Email"
+                            required>
+
+                    </div>
+
+                    <!-- Password -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Password
+
+                        </label>
+
+                        <input
+                            type="password"
+                            name="password"
+                            class="form-control"
+                            minlength="6"
+                            placeholder="Minimum 6 Characters"
+                            required>
+
+                    </div>
+
+                    <!-- Register -->
+
+                    <div class="d-grid">
+
+                        <button
+                            class="btn btn-success">
+
+                            Register Buyer
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div class="card-footer text-center">
+
+                Already have an account?
+
+                <a href="/login">
+
+                    Login Here
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

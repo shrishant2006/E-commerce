@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+
+<div class="p-5 mb-5 bg-white rounded shadow text-center">
+
+    <h1 class="display-4 fw-bold">
+
+        Welcome to E-Commerce Store
+
+    </h1>
+
+    <p class="lead">
+
+        Buy and sell products with a simple,
+        secure and user-friendly platform.
+
+    </p>
+
+    <a href="/login"
+       class="btn btn-primary btn-lg">
+
+        Login
+
+    </a>
+
+    <a href="/register_buyer"
+       class="btn btn-success btn-lg">
+
+        Register as Buyer
+
+    </a>
+
+    <a href="/register_seller"
+       class="btn btn-warning btn-lg">
+
+        Register as Seller
+
+    </a>
+
+</div>
+
+<!-- Featured Products -->
+
+<h2 class="text-center mb-4">
+
+    Featured Products
+
+</h2>
+
+<div class="row">
+
+{% if products %}
+
+{% for product in products %}
+
+<div class="col-md-4 mb-4">
+
+    <div class="card shadow h-100">
+
+        <div class="card-body">
+
+            <h4>
+
+                {{ product[1] }}
+
+            </h4>
+
+            <h5 class="text-success">
+
+                ₹ {{ product[2] }}
+
+            </h5>
+
+            <p>
+
+                {{ product[3] }}
+
+            </p>
+
+            <p>
+
+                <strong>Color :</strong>
+
+                {{ product[4] }}
+
+            </p>
+
+            <p>
+
+                <strong>Size :</strong>
+
+                {{ product[5] }}
+
+            </p>
+
+            <span class="badge bg-warning text-dark">
+
+                ⭐ {{ product[6] }}
+
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<div class="col-12">
+
+<div class="alert alert-info text-center">
+
+No Products Available
+
+</div>
+
+</div>
+
+{% endif %}
+
+</div>
+
+<!-- About Section -->
+
+<div class="card shadow mt-5">
+
+    <div class="card-body">
+
+        <h2 class="text-center">
+
+            About Our Store
+
+        </h2>
+
+        <p class="mt-3">
+
+            This project is a mini E-Commerce
+            application developed using
+            Flask, SQLite and Bootstrap.
+
+            It supports three user roles:
+
+        </p>
+
+        <ul>
+
+            <li>Admin</li>
+            <li>Seller</li>
+            <li>Buyer</li>
+
+        </ul>
+
+        <p>
+
+            Sellers can manage products,
+            Buyers can purchase products,
+            and Admin can monitor the entire
+            system through an analytics dashboard.
+
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,237 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Edit Product
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <!-- Page Heading -->
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h2 class="fw-bold">
+
+                <i class="bi bi-pencil-square text-warning"></i>
+
+                Edit Product
+
+            </h2>
+
+            <p class="text-muted">
+
+                Update the product details below.
+
+            </p>
+
+        </div>
+
+        <div>
+
+            <a href="/products"
+               class="btn btn-secondary">
+
+                <i class="bi bi-arrow-left"></i>
+
+                Back to Products
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Edit Form -->
+
+    <div class="card shadow">
+
+        <div class="card-header bg-warning">
+
+            <h5 class="mb-0">
+
+                Update Product
+
+            </h5>
+
+        </div>
+
+        <div class="card-body">
+
+            <form action="/edit_product/{{ product[0] }}"
+                  method="POST">
+
+                <!-- Product Name -->
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Product Name
+
+                    </label>
+
+                    <input
+                        type="text"
+                        name="product_name"
+                        class="form-control"
+                        value="{{ product[1] }}"
+                        minlength="3"
+                        maxlength="100"
+                        required>
+
+                </div>
+
+                <!-- Price -->
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Price (₹)
+
+                    </label>
+
+                    <input
+                        type="number"
+                        name="price"
+                        class="form-control"
+                        value="{{ product[2] }}"
+                        min="1"
+                        step="0.01"
+                        required>
+
+                </div>
+
+                <!-- Description -->
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Description
+
+                    </label>
+
+                    <textarea
+                        class="form-control"
+                        name="description"
+                        rows="4"
+                        required>{{ product[3] }}</textarea>
+
+                </div>
+
+                <!-- Color -->
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Color
+
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="color"
+                        value="{{ product[4] }}"
+                        required>
+
+                </div>
+
+                <!-- Size -->
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Size
+
+                    </label>
+
+                    <select
+                        class="form-select"
+                        name="size"
+                        required>
+
+                        <option value="S" {% if product[5]=='S' %}selected{% endif %}>S</option>
+                        <option value="M" {% if product[5]=='M' %}selected{% endif %}>M</option>
+                        <option value="L" {% if product[5]=='L' %}selected{% endif %}>L</option>
+                        <option value="XL" {% if product[5]=='XL' %}selected{% endif %}>XL</option>
+                        <option value="XXL" {% if product[5]=='XXL' %}selected{% endif %}>XXL</option>
+
+                    </select>
+
+                </div>
+
+                <!-- Rating -->
+
+                <div class="mb-4">
+
+                    <label class="form-label">
+
+                        Rating
+
+                    </label>
+
+                    <select
+                        class="form-select"
+                        name="rating"
+                        required>
+
+                        <option value="1" {% if product[6]==1 %}selected{% endif %}>⭐ 1</option>
+                        <option value="2" {% if product[6]==2 %}selected{% endif %}>⭐⭐ 2</option>
+                        <option value="3" {% if product[6]==3 %}selected{% endif %}>⭐⭐⭐ 3</option>
+                        <option value="4" {% if product[6]==4 %}selected{% endif %}>⭐⭐⭐⭐ 4</option>
+                        <option value="5" {% if product[6]==5 %}selected{% endif %}>⭐⭐⭐⭐⭐ 5</option>
+
+                    </select>
+
+                </div>
+
+                <!-- Buttons -->
+
+                <div class="d-flex gap-2">
+
+                    <button
+                        type="submit"
+                        class="btn btn-warning">
+
+                        <i class="bi bi-check-circle"></i>
+
+                        Update Product
+
+                    </button>
+
+                    <button
+                        type="reset"
+                        class="btn btn-secondary">
+
+                        <i class="bi bi-arrow-clockwise"></i>
+
+                        Reset
+
+                    </button>
+
+                    <a href="/products"
+                       class="btn btn-danger">
+
+                        Cancel
+
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

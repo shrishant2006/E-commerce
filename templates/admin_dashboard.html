@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Admin Dashboard
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <!-- Heading -->
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h2 class="fw-bold">
+                Admin Dashboard
+            </h2>
+
+            <p class="text-muted">
+                Welcome, Administrator
+            </p>
+        </div>
+
+        <div>
+
+            <a href="/analytics"
+               class="btn btn-primary">
+
+                Analytics
+
+            </a>
+
+            <a href="/logout"
+               class="btn btn-danger">
+
+                Logout
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Dashboard Cards -->
+
+    <div class="row">
+
+        <div class="col-md-3 mb-4">
+
+            <div class="card shadow border-primary">
+
+                <div class="card-body text-center">
+
+                    <h5>Total Sellers</h5>
+
+                    <h2 class="text-primary">
+
+                        {{ total_sellers }}
+
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3 mb-4">
+
+            <div class="card shadow border-success">
+
+                <div class="card-body text-center">
+
+                    <h5>Total Buyers</h5>
+
+                    <h2 class="text-success">
+
+                        {{ total_buyers }}
+
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3 mb-4">
+
+            <div class="card shadow border-warning">
+
+                <div class="card-body text-center">
+
+                    <h5>Total Products</h5>
+
+                    <h2 class="text-warning">
+
+                        {{ total_products }}
+
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3 mb-4">
+
+            <div class="card shadow border-danger">
+
+                <div class="card-body text-center">
+
+                    <h5>Total Orders</h5>
+
+                    <h2 class="text-danger">
+
+                        {{ total_orders }}
+
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Management -->
+
+    <div class="card shadow">
+
+        <div class="card-header bg-dark text-white">
+
+            <h4 class="mb-0">
+
+                Management
+
+            </h4>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="d-grid gap-3">
+
+                <a href="/products"
+                   class="btn btn-outline-primary">
+
+                    View Products
+
+                </a>
+
+                <a href="/reviews"
+                   class="btn btn-outline-success">
+
+                    View Reviews
+
+                </a>
+
+                <a href="/analytics"
+                   class="btn btn-outline-warning">
+
+                    View Analytics
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
